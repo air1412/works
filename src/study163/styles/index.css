@@ -65,6 +65,7 @@ a,a:hover{color:#333;}
 	height:36px;
 	line-height:36px;
 	background-color: #f3f3f3;
+	display:none;	
 }
 .m-tips .tips-contant a{
 	color:#21a557;
