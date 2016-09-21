@@ -1,0 +1,1 @@
+"use strict";!function(){var e=document.getElementById("J_top-tips"),t=document.getElementById("J_tips-close");e.style.display="none";var n=document.cookie,i="tipsHidden=1";n.indexOf(i)==-1&&(e.style.display="block",t.addEventListener("click",function(){e.style.display="none",document.cookie+=i}))}();
