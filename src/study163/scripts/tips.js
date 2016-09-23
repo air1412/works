@@ -1,4 +1,9 @@
 'use strict';
+
+/**
+ * 顶部通知条模块
+ * 
+ */
 (function () {
 	var tips=document.getElementById('J_top-tips');
 	var tipsClose=document.getElementById('J_tips-close');
