@@ -2,28 +2,32 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>网易云课堂</title>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 <body>
 	<!-- 登录弹窗 -->
-	<div class="m-login">
+	<div id="J_login" class="m-login">
 		<div class="loginwd">
-			<i></i>
+			<i id="J_close_loginwd"></i>
+			<h2>登录网易云课堂</h2>
 			<form>
-				<div>
+				<div class="u-userName">
 					<label for="userName"></label>
 					<input type="text" id="userName" placeholder="账号">
 				</div>
-				<div>
+				<div class="u-password">
 					<label for="password"></label>
 					<input type="password" id="password" placeholder="密码">
 				</div>
+				<div class="u-button">
+					<label for="J_login_buttom"></label>
+					<button id="J_login_buttom">登录</button>
+				</div>
 				
-				<button>登录</button>
 			</form>
 		</div>
-		<div class="loginbg"></div>
+		<div id="J_loginbg" class="loginbg"></div>
 	</div>
 	<!-- /登录弹窗 -->
 	<!-- 头部 -->
@@ -125,44 +129,17 @@
 		<div class="g-course f-center-lay">
 			<!-- 课程选项卡模块 -->
 			<div class="m-course f-fl">
-				<ul class="u-tabs">
+				<ul id="J_course-tabs" class="u-tabs">
 					<li class="select">产品设计</li>
 					<li>编程语言</li>
 				</ul>
-				<ul class="u-course f-cb">
-					<li>
-						<a href="#">
-							<img src="images/test1.jpg" alt="">
-							<h3>混音全揭秘 舞曲实战篇 揭秘音乐揭秘...</h3>
-							<span>音频帮</span>
-							<i>510</i>
-							<em>￥800.00</em>
-						</a>
-					</li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+				<ul id="J_course" class="u-course f-cb">
+
 				</ul>
 				<!-- 翻页 -->
 				<div class="u-page f-fr">
-					<div class="prepage">&lt;</div>
-					<ul class="page f-fl">
+					<div id='J_course_prepage' class="f-csp">&lt;</div>
+					<ul  id='J_course_page' class="page f-fl">
 						<li class="select">1</li>
 						<li>2</li>
 						<li>3</li>
@@ -172,7 +149,7 @@
 						<li>7</li>
 						<li>8</li>
 					</ul>
-					<div class="nextpage">&gt;</div>
+					<div id="J_course_nextpage" class="f-csp">&gt;</div>
 				</div>
 				
 			</div>

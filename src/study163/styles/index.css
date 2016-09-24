@@ -60,7 +60,14 @@ a,a:hover{color:#333;}
 .f-usn{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
 
 
+
 /* 登录弹窗模块 */
+.m-login{
+	position: absolute;
+	z-index:999;
+	height: 100%;
+	width: 100%;
+}
 .m-login .loginwd{
 	position: fixed;
 	z-index: 999;
@@ -82,8 +89,61 @@ a,a:hover{color:#333;}
 	cursor: pointer;
 	background: url(../images/ui_sprite.png) no-repeat -275px -25px;
 }
+.m-login .loginwd div,.m-login h2{
+	margin:0 auto;
+	width: 295px;
+	height: 45px;
+	line-height: 45px;
+}
+.m-login h2{
+	margin-top: 30px;
+	padding-bottom: 5px;
+	font-size:18px;
+	font-weight: 600;
+	height: 18px;
+	line-height: 18px;
 
+}
+.m-login .loginwd div{
+	margin-top:15px;
+	border: 1px solid #dfdfdf;
+	box-shadow:2px 2px 2px #f1f1f1 inset;
+	background-color:#fafafa;
+}
+.m-login div input{
+	padding-left: 11px;
+	border:0;
+	width: 100%;
+	height: 100%;
+	font-size:16px;
+	background: transparent;	
+}
+.m-login .loginwd .u-button{
+	width:295px;
+	height: 48px;
+	border: none;
+	box-shadow: none;
+	cursor: pointer;
+	background: url(../images/ui_sprite.png) no-repeat 0 -127px;
+}
+.m-login button{
+	display:none;
 
+}
+
+.m-login .loginbg{/* //弹出登录框是设置半透明背景 */
+	position:fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background-color:#000;
+	opacity: 0.8;
+		filter:alpha(opacity=80);
+		-moz-opacity:0.8;   
+        -khtml-opacity: 0.8;
+
+}
 /* 头部 */
 /* 头部消息通知模块 */
 .m-tips{
@@ -263,7 +323,8 @@ a,a:hover{color:#333;}
 	line-height: 50px;
 	font-size:20px;
 	text-align: center;
-
+	cursor: pointer;
+	background-color: #fff;
 }
 .m-course .u-tabs .select{
 	color:#fff;
@@ -320,6 +381,7 @@ a,a:hover{color:#333;}
 /* 翻页 */
 .m-course .u-page{
 	margin:10px 20px 0 0;
+	color:#666;
 }
 .m-course .u-page div{
 	margin:0 5px;
@@ -340,11 +402,17 @@ a,a:hover{color:#333;}
 	height: 20px;
 	line-height: 20px;
 	text-align: center;
-	color:#666;
+	
 	font-size: 14px;
 	cursor: pointer;
 }
-.m-course .page .select{
+.m-course .select{
+	color: #9dd8b1;
+	/* color:#fff;
+	background-color:#9dd8b1; */
+}
+/* 设置鼠标hover状态 */
+.m-course .page li:hover{
 	color:#fff;
 	background-color:#9dd8b1;
 }
