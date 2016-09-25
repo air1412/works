@@ -162,6 +162,15 @@ a,a:hover{color:#333;}
 	font-size:16px;
 	border-radius:4px;
 }
+/* 输入提示信息 */
+.m-login form span{
+	position:absolute;
+	top:0;
+	left:10px;
+	font-size: 16px;
+	color:#cccccc;
+
+}
 
 /* 头部 */
 /* 头部消息通知模块 */
@@ -206,6 +215,10 @@ a,a:hover{color:#333;}
 	color:#fff;
 	/* visibility:hidden; */
 	background-color:#21a557;
+}
+
+.m-topnva .attention:hover{
+	background-color:#2fb556;
 }
 
 .m-topnva .attention i{/* 关注 */
@@ -273,8 +286,13 @@ a,a:hover{color:#333;}
 	height: 19px;
 	background:url(../images/ui_sprite.png) no-repeat 0 -35px;
 }
-
-
+/* 顶部右侧导航hover效果 */
+.m-topnva .s-rnav a:hover{
+	color:#39a030;
+}
+.m-topnva .s-rnav .search:hover{
+	background:url(../images/ui_sprite.png) no-repeat 0 -55px;
+}
 
 /* 轮播图 */
 .m-slide{
@@ -345,6 +363,9 @@ a,a:hover{color:#333;}
 	font-size:14px;
 	color:#39a030;
 }
+.m-3pro li a:hover{
+	text-decoration:underline;
+}
 
 /* 工作环境模块 */
 .m-workenv{
@@ -394,12 +415,19 @@ a,a:hover{color:#333;}
 }
 
 .m-course .u-course li{
+	position:relative;
 	float:left;
 	margin:0 20px 20px 0;
 	width: 225px;
 	height: 228px;
-	box-shadow:0 1px 2px #999;
+	box-shadow:0 0 1px #999;
 }
+
+/* 课程hover效果 */
+.m-course .u-course li:hover{
+	box-shadow:0 0 1px #333;
+}
+
 .m-course .u-course img{
 	width: 223px;
 	height: 124px;
@@ -415,26 +443,113 @@ a,a:hover{color:#333;}
 	text-overflow: ellipsis;
 
 }
+.m-course .u-course li:hover>h3{
+	color:#39a030;
+}
 .m-course .u-course span{
 	display:block;
 	margin: 7px 0 0 5px;
 	color:#999;	
 }
-.m-course .u-course i{
+.m-course .u-course li>i{
+	position:relative;
 	margin: 9px 0 0 5px;
-	display: block;
-	width: 40px;
-	height: 18px;
-	line-height:18px;
+	padding-right:5px;
+	display: inline-block;
+	border: 1px solid #ddd;
+	border-radius:4px;
+	height: 17px;
+	overflow:hidden;
+	line-height:17px;
 	text-indent:16px;
 	color:#999;
-	background:url(../images/ui_sprite.png) no-repeat 0 -107px;
+	background-color: #fff;
+}
+.m-course .u-course i::before{
+	position:absolute;
+	left:0;
+	content:'';
+	width: 15px;
+	height: 17px;
+	background:url(../images/ui_sprite.png) no-repeat -45px -107px;
 }
 .m-course .u-course em{
 	margin: 9px 0 0 5px;
 	display:block;
+	font-weight:700;
 	color:#ff3f00;
 }
+/* 课程详情弹出层 */
+.m-course .course-popup{
+	position:absolute;
+	z-index:99;
+	top:-11px;
+	left:-11px;
+	width:480px;
+	height: 238px;
+	box-shadow:0 0 1px 2px #d4d3d3;
+	background-color:#fff;
+}
+.m-course .course-popup img{
+	margin:11px 0 0 11px;
+}
+.m-course .course-popup h3{
+	position:absolute;
+	margin:0;
+	left:253px;
+	top:15px;
+	font-size:18px;
+	color:#333;
+	height: 18px;
+	width: 200px;
+	line-height: 18px;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+.m-course .course-popup i{
+	position:absolute;
+	margin:0;
+	left:253px;
+	top:47px;
+	color:#666;
+	text-indent:15px;
+	line-height:17px;
+
+}
+.m-course .course-popup span{
+	position:absolute;
+	margin:0;
+	left:253px;
+	top:75px;
+}
+.m-course .course-popup span.categoryName{
+	top:95px;
+}
+.m-course .course-popup em{
+	position:absolute;
+	top:155px;
+	left:0;
+	height:48px;
+	margin:0;
+	padding:17px 30px 17px 20px;
+	overflow:hidden;
+	font-size:14px;
+	line-height:24px;
+	background-color:#f8f8f8;
+}
+.m-course .course-popup .p{
+	height:48px;
+	overflow:hidden;
+	font-size:14px;
+	color:#666;
+	font-weight:normal;
+	text-overflow:ellipsis;
+}
+/* .m-course .course-popup i::before{
+
+} */
+
 /* 翻页 */
 .m-course .u-page{
 	margin:10px 20px 0 0;

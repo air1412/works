@@ -27,20 +27,36 @@
 	var button = document.getElementById('J_login_buttom');
 	var tips = document.getElementById('J_login_validation');
 	/*输入框鼠标焦点事件，清空内容*/
-	addEventListener(userName, 'focus', function(event) {
-		var e = event || window.event;
-		var target = e.target || e.srcElement;
-		target.value = '';
-		/*console.log(e.srcElement);*/
-
-	});
-	addEventListener(password, 'focus', onFocus)
-
+	addEventListener(userName, 'focus', onFocus);
+	addEventListener(userName,'blur',outFocus);
+	addEventListener(password, 'focus', onFocus);
+	addEventListener(password,'blur',outFocus);
+	/**
+	 * 输入框获得焦点
+	 * 清空输入值
+	 * 隐藏输入提示信息
+	 */
 	function onFocus(event) {
 		var e = event || window.event;
 		var target = e.target || e.srcElement;
 		target.value = '';
+		target.parentNode.lastChild.style.display='none';
+		
 	}
+	/**
+	 * 输入框失去焦点
+	 * 如果没有输入值，显示输入提示信息
+	 * 
+	 */
+	function outFocus (event) {
+		var e = event || window.event;
+		var target = e.target || e.srcElement;
+		
+		if (!target.value) {
+			target.parentNode.lastChild.style.display='block';
+		}
+	}
+
 	/**
 	 * 登陆按钮点击事件
 	 * 判断是否已经输入账号密码
@@ -104,6 +120,11 @@
 		/*查看本地cookie，如果登录的cookie没有设置，则弹出登录框登录*/
 		if (!cookies.loginSuc) {
 			loginwd.style.display = 'block';
+			/*初始化登录框内的数据*/
+			userName.value='';
+			userName.parentNode.lastChild.style.display='block';
+			password.value='';
+			password.parentNode.lastChild.style.display='block';
 			document.body.style.overflow='hidden';
 		} else {
 			/*如果已经设置登录cookie,直接调用登录成功函数发送关注请求*/
@@ -125,7 +146,7 @@
 		var data = {
 			type: 'get',
 			asyn: true,
-			url: 'http://study.163.com/webDev/attention.htm',
+			url: '//study.163.com/webDev/attention.htm',
 		};
 		data.success = function(data) {
 			if (data == 1) {
@@ -155,7 +176,13 @@
 		fans.style.marginLeft = '14px';
 		removeCookie('followSuc');
 	})
+	/*鼠标点击时取消输入提示信息函数*/
+	var userNameText=document.getElementById('J_userName_test');
+	var passwordText=document.getElementById('J_password_test');
+	function deleteText () {
+		userNameText.innerHTML='123';
 
+	}
 }();
 /**
  * 阻止浏览器默认事件函数兼容写法

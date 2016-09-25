@@ -19,6 +19,7 @@ function addEventListener(el, e, fun) {
 	var JCourseTabes=document.getElementById('J_course-tabs');
 	var preocutDesin=JCourseTabes.children[0];
 	var proLanguage=JCourseTabes.children[1];
+	var course=document.getElementById('J_course');
 		/*设置发送请求的参数*/
 	var sendData = {
 		type:'get',//请求类型
@@ -37,23 +38,52 @@ function addEventListener(el, e, fun) {
 	sendData.success=function (datas) {
 		/*console.log(e);*/
 		var e=JSON.parse(datas)
-		var course=document.getElementById('J_course');
 		course.innerHTML='';
 		/*遍历获取到的课程数据，添加到li列表*/
 		for (var i = 0; i < e.list.length; i++) {
 			var eprice=e.list[i].price==0?'免费':'￥'+e.list[i].price;//如果价格为0，则显示免费
-			course.innerHTML+='<li>'+
-								  '<img src='+e.list[i].middlePhotoUrl+'>'+
-							  	  '<h3>'+e.list[i].name+'</h3>'+
-							      '<span>'+e.list[i].provider+'</span>'+
-							 	  '<i>'+e.list[i].learnerCount+'</i>'+
-							 	  '<em>'+eprice+'</em>'+
-						 	  '</li>';
+			var li=document.createElement('li');
+			var div=document.createElement('div')
+			li.innerHTML=
+						  '<img src='+e.list[i].middlePhotoUrl+'>'+
+					  	  '<h3>'+e.list[i].name+'</h3>'+
+					      '<span>'+e.list[i].provider+'</span>'+
+					 	  '<i>'+e.list[i].learnerCount+'</i>'+
+					 	  '<em>'+eprice+'</em>';
+			div.innerHTML = '<img src=' + e.list[i].middlePhotoUrl + '>' +
+							'<h3>' + e.list[i].name + '</h3>' +
+							'<span>发布者：' + e.list[i].provider + '</span>' +
+							'<span class="categoryName">分类：' + e.list[i].categoryName + '</span>' +
+							'<i>' + e.list[i].learnerCount + '人在学</i>' +
+							'<em><p class="p">' + e.list[i].description + '</p></em>';
+			div.style.display='none';
+			div.className="course-popup";
+			addEventListener(li,'mouseenter',popUp(div));
+			addEventListener(li,'mouseleave',popDown(div));
+			li.appendChild(div);
+			course.appendChild(li);
+
 		}
 		
 		
-	}	
-	
+	}
+	var timer=null;
+	function popUp (div) {
+		return function () {
+			/*悬停一秒后弹出悬浮层*/
+			timer=setTimeout(function (argument) {
+				div.style.display='block';
+			},1000);
+			
+		}
+	}
+	function popDown(div) {
+		return function () {
+			/*清除定时器*/
+			clearTimeout(timer);
+			div.style.display='none';
+		}
+	}
 	ajax(sendData);//初始化数据
 
 
@@ -118,4 +148,8 @@ function addEventListener(el, e, fun) {
 			pages(sendData.pageNo+1)();
 		}
 	})
+
+	
+
+		
 })();
