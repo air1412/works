@@ -14,17 +14,19 @@
 			<form>
 				<div class="u-userName">
 					<label for="userName"></label>
-					<input type="text" id="userName" placeholder="账号">
+					<input type="text" id="userName" value="studyOnline" >
 				</div>
 				<div class="u-password">
 					<label for="password"></label>
-					<input type="password" id="password" placeholder="密码">
+					<input type="password" id="password" value="study.163.com" >
 				</div>
 				<div class="u-button">
-					<label for="J_login_buttom"></label>
-					<button id="J_login_buttom">登录</button>
+					<label id="J_login_buttom" for="login_buttom"></label>
+					<button id="login_buttom">登录</button>
 				</div>
-				
+				<div id="J_login_validation" class="validation">
+					
+				</div>
 			</form>
 		</div>
 		<div id="J_loginbg" class="loginbg"></div>
@@ -49,15 +51,21 @@
 		<div class="m-topnva">
 			<div class="f-center-lay">
 				<!-- 左侧logo -->
-				<div class="m-logo f-fl">
+				<div class="m-logo f-fl f-pr">
 					<div class="title f-fl">
 						<h1 class="f-ti f-db">EDU|网易教育产品部</h1>
 					</div>
-					<div class="attention f-fl f-csp">
+					<div id="J_attention" class="attention f-fl f-csp">
 						<i class="f-db f-fl"></i>
 						关注
 					</div>
-					<div class="fans f-fl">
+					<div id='J_focused' class="focused">
+						<i></i>
+						已关注
+						<b>|</b>
+						<span>取消</span>
+					</div>
+					<div id='J_fans' class="fans f-fl">
 						粉丝
 						<em>45</em>
 					</div>

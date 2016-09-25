@@ -28,8 +28,8 @@ function ajax(data) {
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4) {//this指向xhr，4 浏览器已经接收到服务器返回的数据
 			if (this.status==200) { //200表示http请求成功，404表示页面找不到，503服务器端有错
-				var jsdata=JSON.parse(this.responseText)//接收服务器返回的数据
-				data.success(jsdata);
+				/*var jsdata=JSON.parse(this.responseText)*/
+				data.success(this.responseText);//接收服务器返回的数据
 			}
 		}
 	}

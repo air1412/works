@@ -24,18 +24,19 @@ function addEventListener(el, e, fun) {
 		type:'get',//请求类型
 		pageNo:1,//当前页数
 		psize:20,//每页返回数据个数
-		type:10,//筛选类型（ 10：产品设计； 20： 编程语言）
+		stype:10,//筛选类型（ 10：产品设计； 20： 编程语言）
 		asyn: true,
 		url: '//study.163.com/webDev/couresByCategory.htm' + '?pageNo=' + 1 + '&psize=' + 20 + '&type=' + 10,
 		sendUrl: function() {
-			sendData.url = '//study.163.com/webDev/couresByCategory.htm' + '?pageNo=' + sendData.pageNo + '&psize=' + sendData.psize + '&type=' + sendData.type;
+			sendData.url = '//study.163.com/webDev/couresByCategory.htm' + '?pageNo=' + sendData.pageNo + '&psize=' + sendData.psize + '&type=' + sendData.stype;
 		}
 	}
 	
 	/*console.log(sendData);*/
 	/*设置回调函数*/
-	sendData.success=function (e) {
+	sendData.success=function (datas) {
 		/*console.log(e);*/
+		var e=JSON.parse(datas)
 		var course=document.getElementById('J_course');
 		course.innerHTML='';
 		/*遍历获取到的课程数据，添加到li列表*/
@@ -49,7 +50,7 @@ function addEventListener(el, e, fun) {
 							 	  '<em>'+eprice+'</em>'+
 						 	  '</li>';
 		}
-
+		
 		
 	}	
 	
@@ -62,7 +63,7 @@ function addEventListener(el, e, fun) {
 		preocutDesin.className='select';
 		proLanguage.className='';
 		sendData.pageNo=1;
-		sendData.type=10;
+		sendData.stype=10;
 		pages(1)()
 		/*sendData.sendUrl();
 		ajax(sendData);*/
@@ -71,7 +72,7 @@ function addEventListener(el, e, fun) {
 	addEventListener(proLanguage,'click',function () {
 		proLanguage.className='select';
 		preocutDesin.className=''; 
-		sendData.type=20;
+		sendData.stype=20;
 		/*sendData.sendUrl();
 		ajax(sendData);*/
 		pages(1)();

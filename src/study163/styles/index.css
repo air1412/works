@@ -4,17 +4,15 @@ header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,de
 table{border-collapse:collapse;border-spacing:0;}
 caption,th{text-align:left;font-weight:normal;}
 html,body,fieldset,img,iframe,abbr{border:0;}
-i,cite,em,var,address,dfn{font-style:normal;}
-[hidefocus],summary{outline:0;}
-li{list-style:none;}
-h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+i,cite,em,var,address,dfn,b{font-style:normal;}
 sup,sub{font-size:83%;}
 pre,code,kbd,samp{font-family:inherit;}
+ul,li{list-style: none;}
 q:before,q:after{content:none;}
 textarea{overflow:auto;resize:none;}
 label,summary{cursor:default;}
 a,button{cursor:pointer;}
-h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:normal;}
 del,ins,u,s,a,a:hover{text-decoration:none;}
 body,textarea,input,button,select,keygen,legend{font:12px/1.14 "Microsoft YaHei",arial,\5b8b\4f53;color:#333;outline:0;}
 body{background:#f8f8f8;}
@@ -64,6 +62,7 @@ a,a:hover{color:#333;}
 /* 登录弹窗模块 */
 .m-login{
 	position: absolute;
+	display:none;
 	z-index:999;
 	height: 100%;
 	width: 100%;
@@ -123,6 +122,13 @@ a,a:hover{color:#333;}
 	height: 48px;
 	border: none;
 	box-shadow: none;
+	
+	/* background: url(../images/ui_sprite.png) no-repeat 0 -127px; */
+}
+.m-login .u-button label{
+	display:block;
+	width:295px;
+	height: 48px;
 	cursor: pointer;
 	background: url(../images/ui_sprite.png) no-repeat 0 -127px;
 }
@@ -144,6 +150,19 @@ a,a:hover{color:#333;}
         -khtml-opacity: 0.8;
 
 }
+/* 表单验证信息 */
+.m-login .loginwd .validation{
+	margin-top:5px;
+	box-shadow:none;
+	text-indent:5px;
+	height:30px;
+	line-height:30px;
+	border: none;
+	color:#f00;
+	font-size:16px;
+	border-radius:4px;
+}
+
 /* 头部 */
 /* 头部消息通知模块 */
 .m-tips{
@@ -166,23 +185,26 @@ a,a:hover{color:#333;}
 	height:89px;
 	background-color:#fff;
 }
-.m-topnva .m-logo{
+/* .m-topnva .m-logo{
 	width: 388px;
-}
+} */
 .m-topnva .title{
 	margin-top: 30px;
 	width: 234px;
 	height:22px;
 	background: url(../images/ui_sprite.png) no-repeat 0 0;
 }
+
+/* 关注按钮 */
 .m-topnva .attention{
-	margin:31px 0 0 36px;
+	margin:31px 0 0 31px;
 	width: 54px;
 	height: 21px;
 	line-height:21px;
 	text-align:center;
 	border-radius: 2px;
 	color:#fff;
+	/* visibility:hidden; */
 	background-color:#21a557;
 }
 
@@ -192,12 +214,47 @@ a,a:hover{color:#333;}
 	height: 8px;
 	background:url(../images/ui_sprite.png) no-repeat -15px -25px;
 }
-
+/* 已关注 */
+.m-topnva .focused{
+	position: absolute;
+	display: none;
+	top:31px;
+	left:265px;
+	width:104px;
+	height: 19px;
+	border: 1px solid #efefef;
+	line-height: 21px;
+	border-radius: 2px;
+	cursor:default;
+	white-space:nowrap;
+	overflow: hidden;
+	text-indent:22px;
+	font-family:'SimSun';
+	background-color:#f8f8f8;
+} 
+.m-topnva .focused i{
+	position:absolute;
+	left:6px;
+	top:5px;
+	width: 11px;
+	height: 9px;
+	background: url(../images/ui_sprite.png) no-repeat 0 -75px;
+}
+.m-topnva .focused b,.m-topnva .focused span{
+	color:#999;
+}
+.m-topnva .focused span:hover{
+	color:#21a557;
+	text-decoration:underline;
+	cursor:pointer;
+}
 .m-topnva .fans{/* 粉丝 */
-	margin:31px 0 0 9px;
+	margin:31px 0 0 14px;
 	height: 21px;
 	line-height:21px;
 	color:#666;
+	font-family:'SimSun';
+	font-weight:normal;
 }
 
 /* 头部右侧导航 */
@@ -312,13 +369,13 @@ a,a:hover{color:#333;}
 /* 选项卡 */
 .m-course .u-tabs{
 	box-shadow: 0 1px 2px #999;
-	width: 800px;
+	width: 400px;
 	height: 50px;
 
 }
 .m-course .u-tabs li{
 	float: left;
-	width: 400px;
+	width: 200px;
 	height: 50px;
 	line-height: 50px;
 	font-size:20px;
