@@ -13,7 +13,7 @@
 		clearInterval(slideTimer);
 	});
 	addEventListener(ul.parentNode,'mouseleave',function () {
-		slideTimer=setInterval(slide,2000);
+		slideTimer=setInterval(slide,5000);
 	});
 
 
@@ -114,6 +114,7 @@
 	/*图片淡入效果*/
 	function showPic () {
 		///*初始化小圆点的样式
+		clearInterval(timer);
 		for (var i = 0; i < lisList.length; i++) {
 			lisList[i].pg.className='';
 		}

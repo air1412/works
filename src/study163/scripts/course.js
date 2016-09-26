@@ -58,7 +58,9 @@ function addEventListener(el, e, fun) {
 							'<em><p class="p">' + e.list[i].description + '</p></em>';
 			div.style.display='none';
 			div.className="course-popup";
+			/*鼠标悬停弹出浮层*/
 			addEventListener(li,'mouseenter',popUp(div));
+			/*鼠标移开关闭浮层*/
 			addEventListener(li,'mouseleave',popDown(div));
 			li.appendChild(div);
 			course.appendChild(li);
@@ -73,7 +75,7 @@ function addEventListener(el, e, fun) {
 			/*悬停一秒后弹出悬浮层*/
 			timer=setTimeout(function (argument) {
 				div.style.display='block';
-			},1000);
+			},350);
 			
 		}
 	}
