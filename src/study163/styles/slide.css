@@ -1,0 +1,41 @@
+/* 全屏轮播图模块 */
+.m-slide-full{
+	position:relative;
+
+	height: 462px;
+/* 	margin:0 auto;
+width:1652px; */
+}
+.m-slide-full .u-slideimg{
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 50%;
+	margin-left: -826px
+}
+.m-slide-full .u-slideimg li{
+	position: absolute;
+	top: 0;
+	left: 0
+}
+
+.m-slide-full .u-slidepg{
+	position:absolute;
+	z-index: 1;
+	top: 430px;
+	width:100%;
+	text-align:center;
+}
+
+.m-slide-full .u-slidepg li{
+	display: block;
+	float: left;
+	margin:0 6px;
+	width: 10px;
+	height: 10px;
+	border-radius:50%;
+	background-color:#fff;
+}
+.m-slide-full .u-slidepg .select{
+	background-color:#333;
+}

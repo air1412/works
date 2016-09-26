@@ -294,29 +294,7 @@ a,a:hover{color:#333;}
 	background:url(../images/ui_sprite.png) no-repeat 0 -55px;
 }
 
-/* 轮播图 */
-.m-slide{
-	position:relative;
-	margin:0 auto;
-	width:1652px;
-}
-.m-slide .u-slidepg{
-	position:absolute;
-	top: 430px;
-	width:100%;
-	text-align:center;
-}
 
-.m-slide .u-slidepg li{
-	margin:0 6px;
-	width: 10px;
-	height: 10px;
-	border-radius:50%;
-	background-color:#fff;
-}
-.m-slide .u-slidepg .select{
-	background-color:#333;
-}
 
 /* 产品展示模块 */
 .m-3pro{

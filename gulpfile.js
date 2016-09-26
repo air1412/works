@@ -10,6 +10,7 @@
 var gulp=require('gulp');
 var less=require('gulp-less');
 var cssnano=require('gulp-cssnano');
+var concat=require('gulp-concat')//文件合并
 
 //1. LESS编译 压缩 合并
 /*gulp.task('style',function () {
@@ -22,15 +23,16 @@ var cssnano=require('gulp-cssnano');
 })*/
 gulp.task('style',function () {
 	//这里是在执行style任务时自动执行的
-	gulp.src('src/study163/styles/index.css')//获取文件
+	gulp.src('src/study163/styles/*.css')//获取文件
 	/*.pipe(less())//格式化less文件*/
+	.pipe(concat('index.css'))
 	.pipe(cssnano())//压缩css文件
 	.pipe(gulp.dest('dist/study163/styles'))//复制文件
 	.pipe(browserSync.reload({stream:true}));//通知浏览器刷新
 })
 
 //2. JS合并 压缩 混淆
-var concat=require('gulp-concat')
+
 var uglify=require('gulp-uglify')
 
 gulp.task('script',function () {
