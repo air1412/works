@@ -33,24 +33,32 @@
 	function pgClick (k) {
 		return function () {
 			clearInterval(timer);
-			/*console.log(lis[k]);*/
+			/*把鼠标点击对应的对象增加到数组的末尾*/
 			lisList.push(lis[k]);
-			/*console.log(lisList);*/
-			lisList[lisList.length-1].style.zIndex=lisList.length-1;
-			/*console.log(lisList[k]);*/
+
+			/*lisList[lisList.length-1].style.zIndex=lisList.length-1;*/
+			/*给数组内的li拍层级*/
+			for (var i = 0; i < lisList.length; i++) {
+			lisList[i].style.zIndex=i;
+
+			}
+			/*调用淡入函数*/
 			showPic();
+
+			/*根据当前排列情况重新排列数组*/
 			lisList=[];
+
 			for (var i = k+1; i < lis.length; i++) {
-				/*console.log(i);
-				console.log(lisList);*/
-				console.log(lis[i]);
+
+				
 				lisList.push(lis[i]);
-				/*console.log(lisList[1]);*/
+
 			}
 			for (var i = 0; i <=k; i++) {
 				lisList.push(lis[i]);
 			}
 			console.log(lisList);
+			
 		}
 	}
 
@@ -116,9 +124,11 @@
 		实现淡入效果
 		*/
 		lisList[lisList.length-1].style.opacity=0;
+		lisList[lisList.length-1].style.filter='alpha(opacity=0)';
 		var t=0;
 		timer=setInterval(function () {
 			lisList[lisList.length-1].style.opacity=t;
+			lisList[lisList.length-1].style.filter='alpha(opacity='+t*100+')';
 			t+=0.02;
 			/*如果图片的透明度为1，清除定时器*/
 			if (lisList[lisList.length-1].style.opacity>=1.0) {
@@ -129,7 +139,7 @@
 	}
 
 	var slideTimer=null;
-	slideTimer=setInterval(slide,2000);
+	slideTimer=setInterval(slide,5000);
 	
 
 }();

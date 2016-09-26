@@ -13,10 +13,10 @@
 	/*点击x关闭登录框*/
 	addEventListener(closelg, 'click', function() {
 		loginwd.style.display = 'none';
-		document.body.style.overflow='auto';
+		document.body.style.overflowY='auto';
 	})
 	addEventListener(loginbg, 'click', function() {
-			document.body.style.overflow='auto';
+			document.body.style.overflowY='auto';
 			loginwd.style.display = 'none';
 		})
 		/**
@@ -125,7 +125,8 @@
 			userName.parentNode.lastChild.style.display='block';
 			password.value='';
 			password.parentNode.lastChild.style.display='block';
-			document.body.style.overflow='hidden';
+			/*q取消Y方向的滚动条*/
+			document.body.style.overflowY='hidden';
 		} else {
 			/*如果已经设置登录cookie,直接调用登录成功函数发送关注请求*/
 			loginSuccessful();
