@@ -2,10 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>网易云课堂</title>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 <body>
+	<!-- 登录弹窗 -->
+	<div id="J_login" class="m-login">
+		<div class="loginwd">
+			<i id="J_close_loginwd"></i>
+			<h2>登录网易云课堂</h2>
+			<form>
+				<div class="u-userName f-pr">
+					<label for="userName"></label>
+					<input type="text" id="userName" >
+					<span id='J_userName_test'>账号</span>
+				</div>
+				<div class="u-password f-pr">
+					<label for="password"></label>
+					<input type="password" id="password" >
+					<span id='J_password_test'>密码</span>
+				</div>
+				<div class="u-button">
+					<label id="J_login_buttom" for="login_buttom"></label>
+					<button id="login_buttom">登录</button>
+				</div>
+				<div id="J_login_validation" class="validation">
+					
+				</div>
+			</form>
+		</div>
+		<div id="J_loginbg" class="loginbg"></div>
+	</div>
+	<!-- /登录弹窗 -->
 	<!-- 头部 -->
 	<div class="g-header">
 		<!-- 消息通知 -->
@@ -25,15 +53,21 @@
 		<div class="m-topnva">
 			<div class="f-center-lay">
 				<!-- 左侧logo -->
-				<div class="m-logo f-fl">
+				<div class="m-logo f-fl f-pr">
 					<div class="title f-fl">
 						<h1 class="f-ti f-db">EDU|网易教育产品部</h1>
 					</div>
-					<div class="attention f-fl">
+					<div id="J_attention" class="attention f-fl f-csp">
 						<i class="f-db f-fl"></i>
 						关注
 					</div>
-					<div class="fans f-fl">
+					<div id='J_focused' class="focused">
+						<i></i>
+						已关注
+						<b>|</b>
+						<span>取消</span>
+					</div>
+					<div id='J_fans' class="fans f-fl">
 						粉丝
 						<em>45</em>
 					</div>
@@ -42,10 +76,10 @@
 				<!-- 右侧导航 -->
 				
 				<ul class="s-rnav f-fr">
-					<li class="f-fl"><a href="#">网易公开课</a></li>
-					<li class="f-fl"><a href="#">云课堂</a></li>
-					<li class="f-fl"><a href="#">中国大学MOOC</a></li>
-					<li class="f-fl"><a href="#" class="search f-db"></a></li>
+					<li class="f-fl"><a href="http://open.163.com/">网易公开课</a></li>
+					<li class="f-fl"><a href="http://study.163.com/">云课堂</a></li>
+					<li class="f-fl"><a href="http://www.icourse163.org">中国大学MOOC</a></li>
+					<li class="f-fl"><a href="javascript:" class="search f-db"></a></li>
 				</ul>
 				
 				<!-- 右侧导航 -->
@@ -79,19 +113,19 @@
 					<i></i>
 					<h2>网易公开课</h2>
 					<p>推出国内外名校公开课，涉及广泛的学科，名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。</p>
-					<a href="#">了解更多></a>
+					<a href="http://open.163.com/">了解更多></a>
 				</li>
 				<li class="u-yunclass f-fl">
 					<i></i>
 					<h2>云课堂</h2>
 					<p>网易旗下大型在线学习平台，该平台面向学习者提供海量免费、优质课程,创新的个性化学习体验，自由开放的交流互动环境。</p>
-					<a href="#">了解更多></a>
+					<a href="http://study.163.com/">了解更多></a>
 				</li>
 				<li class="u-mooc f-fl">
 					<i></i>
 					<h2>中国大学MOOC</h2>
 					<p>是爱课程网携手云课堂打造的在线学习平台，每一个有提升愿望的人,都可以在这里学习中国最好的大学课程，学完还能获得认证证书。</p>
-					<a href="#">了解更多></a>
+					<a href="http://www.icourse163.org/">了解更多></a>
 				</li>
 			</ul>
 		</div>
@@ -114,7 +148,7 @@
 				</ul>
 				<!-- 翻页 -->
 				<div class="u-page f-fr">
-					<div class="prepage">&lt;</div>
+					<div id='J_course_prepage' class="f-csp">&lt;</div>
 					<ul  id='J_course_page' class="page f-fl">
 						<li class="select">1</li>
 						<li>2</li>
@@ -125,7 +159,7 @@
 						<li>7</li>
 						<li>8</li>
 					</ul>
-					<div class="nextpage">&gt;</div>
+					<div id="J_course_nextpage" class="f-csp">&gt;</div>
 				</div>
 				
 			</div>
