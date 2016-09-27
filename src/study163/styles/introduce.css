@@ -1,0 +1,119 @@
+/* 机构介绍 */
+.m-introduce{
+	width: 223px;
+	height: 229px;
+	box-shadow: 0 1px 1px #ddd;
+	background-color:#fff;
+}
+.m-introduce h3{
+	padding-left: 20px;
+	border-bottom: 1px solid #ddd;
+	height: 55px;
+	line-height: 55px;
+	font-size: 16px;
+	font-weight: normal;
+}
+.m-introduce span{
+	padding: 20px 0 9px 22px;
+	display: block;
+	font-size: 14px;
+
+}
+.m-introduce video{
+	margin-left:22px;
+	width: 180px;
+	height: 110px;
+}
+.m-introduce .video .ifie8{
+	position: absolute;
+	display: none;
+	width: 180px;
+	height: 110px;
+	margin-left:22px;
+	border: 1px solid #ccc;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	font-size: 16px;
+	line-height: 2;
+	color: #f00;
+}
+
+/* 视频弹窗模块 */
+
+.m-video-window{
+	position: fixed;
+	display: none;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.m-video-window .video-bg{
+	position: absolute;
+	z-index: 2;
+	top:50%;
+	left:50%;
+	margin-left: -475px;
+	margin-top: -338px;
+	width: 950px;
+	height: 676px;
+	background-color: #fff;
+}
+
+.m-video-window .video-bg h3{
+	margin:30px 0 0 30px;
+	font-size: 18px;
+	line-height: 18px;
+	color: #444;
+	font-weight: bold;
+	cursor: default;
+
+}
+.m-video-window .video-bg i{
+	position: absolute;
+	top:6px;
+	right: 5px;
+	width: 23px;
+	height: 22px;
+	background: url(../images/ui_sprite.png) no-repeat -275px -25px;
+}
+.m-video-window .video-bg video{
+	position: absolute;
+	top:69px;
+	left: 31px;
+	width: 889px;
+	height: 538px;
+}
+.m-video-window .controls{
+	position: absolute;
+	width: 889px;
+	height: 29px;
+	top:607px;
+	left:31px;
+	background: url(../images/controls.jpg) no-repeat;
+	
+}
+.m-video-window .controls .play{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	top:-78px;
+	left:20px;
+	cursor: pointer;
+	background: url(../images/play.png) no-repeat;
+}
+.m-video-window .video-window-bg{
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color:#000;
+	opacity: 0.8;
+		filter:alpha(opacity=80);
+		-moz-opacity:0.8;   
+        -khtml-opacity: 0.8;
+}
