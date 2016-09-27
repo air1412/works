@@ -1,0 +1,62 @@
+/* 最热排行模块 */
+.m-hotlist{
+	margin-top:21px;
+	width:223px;
+	box-shadow: 0 1px 1px #ddd;
+	background-color:#fff;
+}
+.m-hotlist:hover{
+	box-shadow:1px 1px 0px #ccc;
+}
+.m-hotlist h3{
+	padding-left: 20px;
+	border-bottom: 1px solid #ddd;
+	height: 56px;
+	line-height: 56px;
+	font-weight:normal;
+	font-size: 16px;
+}
+.m-hotlist .u-hotlist{
+	padding-left: 20px;
+}
+.m-hotlist .u-hotlist li{
+	height: 70px;
+}
+.m-hotlist li img{
+	float: left;
+	margin-top:10px;
+	width: 50px;
+	height: 50px;
+}
+.m-hotlist li .r-side{
+	position: relative;
+	float: left;
+	width: 130px;
+	margin-left: 12px;
+}
+.m-hotlist li h4{
+	margin-top: 10px;
+	line-height: 14px;
+	font-weight: normal;
+	font-size:14px;
+	color:#333;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.m-hotlist li i{
+	position: absolute;
+	display: block;
+	top:34px;
+	width: 15px;
+	height: 17px;
+	background: url(../images/ui_sprite.png) no-repeat -45px -107px;
+}
+.m-hotlist li span{
+	position: absolute;
+	top:34px;
+	left:17px;
+	height: 17px;
+	line-height: 17px;
+	color:#999;
+}

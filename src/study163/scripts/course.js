@@ -44,6 +44,7 @@ function addEventListener(el, e, fun) {
 			var eprice=e.list[i].price==0?'免费':'￥'+e.list[i].price;//如果价格为0，则显示免费
 			var li=document.createElement('li');
 			var div=document.createElement('div')
+			e.list[i].middlePhotoUrl=e.list[i].middlePhotoUrl.replace(/http:/,'');
 			li.innerHTML=
 						  '<img src='+e.list[i].middlePhotoUrl+'>'+
 					  	  '<h3>'+e.list[i].name+'</h3>'+

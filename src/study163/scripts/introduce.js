@@ -5,7 +5,7 @@
 	var video=videoWindow.getElementsByTagName('video')[0];
 	var play=document.getElementById('J_video_play');
 	var closeVideoWin=videoWindow.getElementsByTagName('i')[0];
-	console.log(video)
+	
 	if (!!document.createElement('video').canPlayType) {
 		//如果浏览器能播放视频，这执行函数
 		openVideo();

@@ -16,6 +16,7 @@ function ajax(data) {
 	if (data.url) {
 		url = data.url;
 	}
+	
 	var flag = data.asyn == 'true' ? 'true' : 'false'; //请求方式，默认是true表示异步，false表示同步
 
 	xhr.open(type, url, flag);
