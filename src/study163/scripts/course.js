@@ -1,12 +1,48 @@
 /*
 获取课程列表模块
  */
+
+/*添加事件兼容ie函数*/
 function addEventListener(el, e, fun) {
 		if (el.addEventListener) {
 			el.addEventListener(e, fun, false);
 		} else if (el.attachEvent) { //兼容旧ie版本
 			el.attachEvent('on'+e, fun);
 		}
+}
+/*window可视区域变化监听函数*/
+function windowOnresize (fun) {
+	var oldResize=window.onresize;
+	if(typeof window.onresize != 'function'){
+		window.onresize=fun;
+	}
+	else{
+		window.onresize=function () {
+			oldResize();
+			fun();
+		}
+	}
+}
+
+/*获取浏览器可视区域兼容函数*/
+function client () {
+	if(window.innerWidth != null){
+		return{
+			width:window.innerWidth,
+			height:window.innerHight
+		}
+	}
+	else if(document.compatMode === "CSS1Compat"){
+		return{
+			width:document.documentElement.clientWidth,
+			height:document.documentElement.clientHeight
+		}
+
+	}
+	return{
+			width:document.body.clientWidth,
+			width:document.body.clientHeight
+	}
 }
 
 (function () {
@@ -21,18 +57,20 @@ function addEventListener(el, e, fun) {
 	var proLanguage=JCourseTabes.children[1];
 	var course=document.getElementById('J_course');
 		/*设置发送请求的参数*/
+
 	var sendData = {
 		type:'get',//请求类型
 		pageNo:1,//当前页数
-		psize:20,//每页返回数据个数
+		psize:15,//每页返回数据个数
 		stype:10,//筛选类型（ 10：产品设计； 20： 编程语言）
 		asyn: true,
-		url: '//study.163.com/webDev/couresByCategory.htm' + '?pageNo=' + 1 + '&psize=' + 20 + '&type=' + 10,
+		
 		sendUrl: function() {
 			sendData.url = '//study.163.com/webDev/couresByCategory.htm' + '?pageNo=' + sendData.pageNo + '&psize=' + sendData.psize + '&type=' + sendData.stype;
 		}
 	}
-	
+	setSendData();
+
 	/*console.log(sendData);*/
 	/*设置回调函数*/
 	sendData.success=function (datas) {
@@ -44,7 +82,6 @@ function addEventListener(el, e, fun) {
 			var eprice=e.list[i].price==0?'免费':'￥'+e.list[i].price;//如果价格为0，则显示免费
 			var li=document.createElement('li');
 			var div=document.createElement('div')
-			e.list[i].middlePhotoUrl=e.list[i].middlePhotoUrl.replace(/http:/,'');
 			li.innerHTML=
 						  '<img src='+e.list[i].middlePhotoUrl+'>'+
 					  	  '<h3>'+e.list[i].name+'</h3>'+
@@ -87,7 +124,48 @@ function addEventListener(el, e, fun) {
 			div.style.display='none';
 		}
 	}
-	ajax(sendData);//初始化数据
+
+	sendData.sendUrl();
+	function setSendData() {
+		/*当窗口宽度小于1205px时，每页15个数据*/
+		if (client().width<1205) {	
+				
+				sendData.psize=15;
+				
+			
+		}
+		/*当窗口宽度大于1205px时，每页20个数据*/
+		else{		
+				sendData.psize=20;
+		}
+	}
+
+	
+	windowOnresize(function () {
+		/*当窗口宽度小于1205px时，每页15个数据*/
+		if (client().width<1205) {	
+			if (sendData.psize==20) {
+				sendData.psize=15;
+				sendData.sendUrl();
+				ajax(sendData);
+			}
+		}
+		/*当窗口宽度大于1205px时，每页20个数据*/
+		else{
+			if (sendData.psize==15) {
+				sendData.psize=20;
+				sendData.sendUrl();
+				ajax(sendData);
+			}		
+				
+		}
+		
+		sendData.sendUrl();
+		ajax(sendData);
+	});
+	ajax(sendData);
+
+
 
 
 	/*切换选项卡*/
@@ -153,6 +231,7 @@ function addEventListener(el, e, fun) {
 	})
 
 	
-
+	
+	
 		
 })();

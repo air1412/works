@@ -23,9 +23,16 @@ var concat=require('gulp-concat')//文件合并
 })*/
 gulp.task('style',function () {
 	//这里是在执行style任务时自动执行的
-	gulp.src('src/study163/styles/*.css')//获取文件
+	gulp.src(['src/study163/styles/*.css','src/study163/meidia/meidia.css'])//获取文件
 	/*.pipe(less())//格式化less文件*/
 	.pipe(concat('index.css'))
+	.pipe(cssnano())//压缩css文件
+	.pipe(gulp.dest('dist/study163/styles'))//复制文件
+	.pipe(browserSync.reload({stream:true}));//通知浏览器刷新
+
+	gulp.src('src/study163/meidia/IE8media.css')//获取文件
+	/*.pipe(less())//格式化less文件*/
+	.pipe(concat('media.css'))
 	.pipe(cssnano())//压缩css文件
 	.pipe(gulp.dest('dist/study163/styles'))//复制文件
 	.pipe(browserSync.reload({stream:true}));//通知浏览器刷新
@@ -87,6 +94,7 @@ gulp.task('serve',function () {
 
 	//监视文件
 	gulp.watch('src/study163/styles/*.css',['style']);
+	gulp.watch('src/study163/meidia/*.css',['style']);
 	gulp.watch('src/study163/scripts/*.js',['script']);
 	gulp.watch('src/study163/images/*.*',['image']);
 	gulp.watch('src/*.html',['html']);

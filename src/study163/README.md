@@ -44,3 +44,14 @@
 
 9. 页面布局动态适应
     + 根据浏览器窗口宽度，适应两种视觉布局尺寸。窗口宽度<1205时，使用小屏视觉布局；窗口宽度>=1205时，使用大屏视觉布局。布局示意图见视觉效果
+
+
+检测屏幕宽度（可视区域）
+```shell
+//ie9机器以上版本
+window.innerWidth
+//标准模式
+document.documentElement.clientWidth
+//怪异模式
+document.body.clientWdith
+```
